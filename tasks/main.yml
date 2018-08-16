@@ -1,0 +1,26 @@
+---
+
+- include: mint-19.yml
+  when: ansible_distribution == 'Linux Mint' and ansible_distribution_version == '19'
+  become: yes
+  become_user: root
+
+- include: raspbian.yml
+  when: ansible_lsb.id == "Raspbian"
+  become: yes
+  become_user: root
+
+- include: ubuntu-14.04.yml
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'
+  become: yes
+  become_user: root
+
+- include: ubuntu-16.04.yml
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '16.04'
+  become: yes
+  become_user: root
+
+- include: ubuntu-18.04.yml
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '18.04'
+  become: yes
+  become_user: root
