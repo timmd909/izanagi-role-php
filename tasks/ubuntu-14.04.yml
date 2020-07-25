@@ -4,19 +4,20 @@
   apt: name=memcached state=present
 
 - name: Install PHP (Ubuntu 14.04)
-  apt: name="{{ item }}" state=present
-  with_items:
-    - php5
-    - php-apc
-    - php5-cgi
-    - php5-curl
-    - php5-gd
-    - php5-imagick
-    - php5-json
-    - php5-mcrypt
-    - php5-mysqlnd
-    - php5-sqlite
-    - php5-xml
+  apt:
+    state: present
+    name:
+      - php5
+      - php-apc
+      - php5-cgi
+      - php5-curl
+      - php5-gd
+      - php5-imagick
+      - php5-json
+      - php5-mcrypt
+      - php5-mysqlnd
+      - php5-sqlite
+      - php5-xml
 
 - name: Download and Install Composer (Ubuntu 14.04)
   shell: "{{ item }}"

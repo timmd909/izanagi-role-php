@@ -3,9 +3,10 @@
 - name: memcache
   apt: name=memcached state=present
 
-- name: Install PHP (Ubuntu 20.04)
+- name: Install PHP 7.4
   apt:
-    pkg:
+    state: latest
+    name:
       - php
       - php-amqplib
       - php-apcu
@@ -15,17 +16,41 @@
       - php-gd
       - php-imagick
       - php-json
-      - php-mysqlnd
+      - php-mysql
+      - php-pcov
       - php-sqlite3
       - php-xml
 
-- name: Install Composer (Ubuntu 20.04)
+- name: Install Composer
   apt: name=composer state=latest
 
-- name: Enable PHP mods (Ubuntu 20.04)
+- name: Install PHP 7.2 PPA
+  apt_repository:
+    repo: ppa:ondrej/php
+    state: present
+
+- name: Install PHP 7.2
+  apt:
+    name: php7.2
+    state: latest
+    update_cache: yes
+
+- name: Install PHP 7.2 modules
+  apt:
+    state: latest
+    name:
+      - php7.2-bcmath
+      - php7.2-cgi
+      - php7.2-curl
+      - php7.2-gd
+      - php7.2-imagick
+      - php7.2-json
+      - php7.2-mysql
+      - php7.2-sqlite3
+      - php7.2-xml
+
+- name: Enable PHP mods
   shell: "phpenmod {{ item }}"
-  args:
-    creates: "/etc/apache2/mods-enabled/{{ item }}.load"
   with_items:
     - amqplib
     - bcmath
