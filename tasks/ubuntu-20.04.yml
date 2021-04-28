@@ -3,6 +3,9 @@
 - name: memcache
   apt: name=memcached state=present
 
+- name: "PHP : Install up-to-date PHP PPA"
+  shell: add-apt-repository -y ppa:ondrej/php
+
 # At this time, I'm not interested in being a beta tester of the next PHP.
 # Plus a lot of packages won't work soon after a new major release, for
 # obvious reasons.
