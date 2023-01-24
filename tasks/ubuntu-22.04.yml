@@ -1,0 +1,28 @@
+---
+
+- name: memcache
+  apt: name=memcached state=present
+
+- name: Install Composer
+  apt: name=composer state=latest
+
+- name: Install PHP libraries
+  apt:
+    name:
+      - php-bcmath
+      - php-gd
+      - php-imagick
+      - php-mysql
+    state: present
+
+- name: Enable PHP mods
+  shell: "phpenmod {{ item }}"
+  with_items:
+    - amqplib
+    - bcmath
+    - curl
+    - dom
+    - mbstring
+    - mcrypt
+    - phar
+    - xml
