@@ -19,6 +19,7 @@
       - php7.2-mbstring
       - php7.2-memcached
       - php7.2-mysql
+      - php7.2-pcov
       - php7.2-sqlite3
       - php7.2-xml
       - php7.2-zip
@@ -37,6 +38,7 @@
       - php7.4-mbstring
       - php7.4-memcached
       - php7.4-mysql
+      - php7.4-pcov
       - php7.4-sqlite3
       - php7.4-xml
       - php7.4-zip
