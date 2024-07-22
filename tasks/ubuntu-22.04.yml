@@ -6,7 +6,7 @@
 - name: 'Install up-to-date PHP PPA'
   shell: add-apt-repository -y ppa:ondrej/php
 
-- name: Install PHP 7.2 and libraries
+- name: Remove PHP 7.2 and libraries
   apt:
     name:
       - php7.2
@@ -23,7 +23,7 @@
       - php7.2-sqlite3
       - php7.2-xml
       - php7.2-zip
-    state: present
+    state: absent
 
 - name: Install PHP 7.4 and libraries
   apt:
